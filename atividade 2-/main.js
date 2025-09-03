@@ -1,20 +1,16 @@
-const frm = document.querySelector("form");
-const resp1 = document.querySelector("#outResp1");
-const resp2 = document.querySelector("#outResp2");
-const resp3 = document.querySelector("#outResp3");
-
+const frm = document.querySelector("form")
+const resp1 = document.querySelector("h3")
+const resp2 = document.querySelector("h4")
 frm.addEventListener("submit", (e) => {
-    const veiculo = frm.inVeiculo.value;
+const titulo = frm.inTitulo.value
+const duracao = Number(frm.inDuracao.value)
 
-    const preco = Number(frm.inPreco.value);
+const horas = Math.floor(duracao / 60)
+const minutos = duracao % 60
 
-    const entrada = preco * 0.50;
-    const parcela = (preco * 0.50) / 12;
 
-resp1.innerText = `Promoção: ${ veiculo }` ;
-
-resp2.innerText = `Entrada de R$: ${entrada.toFixed(2)}`;
-resp3.innerText = `+12x de R$ ${parcela.toFixed(2)}`;
-e.preventDefault();
+resp1.innerText = titulo
+resp2.innerText = `${horas} hora(s) e ${minutos} minuto(s)`
+e.preventDefault()
 
 })
